@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ToDos/style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script type="text/javascript" src="worksheetCtrl.js"></script>
+    <script type="text/javascript" src="/App/core/guid.js"></script>
+    <script type="text/javascript" src="/App/core/array.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Web Worksheet</title>
+</head>
+<body class="container-fluid">
+    <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li class="nav navbar-brand">WEBSITE WORKSHEET</li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../ToDos/ToDos.html">Todo</a></li>
+            <li><a href="../Project/projectItem.html">Project</a></li>
+            <li><a href="../User/Users.html">User</a></li>
+            <li><a href="../Worksheet/Worksheet.html">Worksheet</a></li>
+            <li><a href="../Category/Category.html">Category</a></li>
+            <li><a href="../Product/Product.html">Product</a></li>
+            <li><a href="../Order/Order.html">Order</a></li>
+        </ul>
+    </nav>
+    <div class="wrapped" ng-controller="worksheetCtrl">
+        <div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>User</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <form>
+                                <select class="form-control" ng-model="user" ng-change="search()">
+                                    <option selected disabled value="{{null}}">Select user</option>
+                                    <option ng-repeat="item in users | orderBy:'name'" value="{{item.id}}">
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                                <input type="reset" class="reset btn-dark" value="RESET" ng-click="resetFilter()" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <h4>Project</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <form>
+                                <select class="form-control" ng-model="project" ng-change="search()">
+                                    <option selected disabled value="{{null}}">Select project</option>
+                                    <option ng-repeat="item in projects | orderBy:'name'" value="{{item.id}}">
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>E</th>
+                                <th>User</th>
+                                <th>Project</th>
+                                <th>Time</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>D</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="worksheet in worksheets | orderBy: ['user','project']">
+                                <td>
+                                    <div>
+                                        <div class="button">
+                                            <button type="button"
+                                                    class="btn btn-success"
+                                                    data-toggle="modal"
+                                                    data-target="#editWorksheetModel"
+                                                    ng-click="setWorksheetForEdit(worksheet)">
+                                                E
+                                            </button>
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade"
+                                             id="editWorksheetModel"
+                                             role="dialog"
+                                             aria-labelledby="exampleModalLabel"
+                                             aria-hidden="true">
+                                            <div class="modal-dialog"
+                                                 role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel2">Edit Worksheet</h5>
+                                                        <button type="button"
+                                                                class="close"
+                                                                data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                User
+                                                                <select class="form-control" ng-model="editWorksheet.user.id">
+                                                                    <option selected disabled>Select user</option>
+                                                                    <option ng-repeat="user in users | orderBy:'name'" value="{{user.id}}">{{user.name}}</option>
+                                                                </select>
+
+                                                                Project
+                                                                <select class="form-control" ng-model="editWorksheet.project.id">
+                                                                    <option selected disabled>Select project</option>
+                                                                    <option ng-repeat="project in projects | orderBy:'name'" value="{{project.id}}">{{project.name}}</option>
+                                                                </select>
+
+                                                                Date
+                                                                <input type="text" ng-model="editWorksheet.date" class="form-control" />
+
+                                                                Time
+                                                                <input type="text" ng-model="editWorksheet.time" class="form-control" />
+                                                                <br />
+
+                                                                Description
+                                                                <input type="text" ng-model="editWorksheet.description" class="form-control" />
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary" ng-click="updateWorksheet()">Save worksheet</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--Edit-->
+                                </td>
+                                <td>{{worksheet.user.name}}</td>
+                                <td>{{worksheet.project.name}}</td>
+                                <td>{{worksheet.time}}</td>
+                                <td>{{worksheet.date}}</td>
+                                <td>{{worksheet.description}}</td>
+                                <td><button class="btn btn-danger" ng-click="deleteWorksheet(worksheet)">D</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="buttonAdd">
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#addWorksheetModel">
+                        ADD
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade"
+                     id="addWorksheetModel"
+                     role="dialog"
+                     aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog"
+                         role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2">Create Worksheet</h5>
+                                <button type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        User
+                                        <select class="form-control" ng-model="addWorksheet.user">
+                                            <option selected disabled>Select user</option>
+                                            <option ng-repeat="user in users | orderBy:'name'" value="{{user.id}}">{{user.name}}</option>
+                                        </select>
+                                        Project
+                                        <select class="form-control" ng-model="addWorksheet.project">
+                                            <option selected disabled>Select project</option>
+                                            <option ng-repeat="project in projects | orderBy:'name'" value="{{project.id}}">{{project.name}}</option>
+                                        </select>
+                                        Date
+                                        <input type="text" ng-model="addWorksheet.date" class="form-control" />
+                                        Time
+                                        <input type="text" ng-model="addWorksheet.time" class="form-control" />
+                                        <br />
+                                        Description
+                                        <input type="text" ng-model="addWorksheet.description" class="form-control" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" ng-click="createWorksheet()">Save worksheet</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--Add-->
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>

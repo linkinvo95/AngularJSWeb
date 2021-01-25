@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "bZhSBcOv7GZ1V0n/AKeLLrMfmBYEgWGZpqdIRPrO4H74d8mQCLCrbXwfScorYOtMqMPCQgtIn3p8HN8wGWoLEw==",
+  "success": true,
+  "projectFilePath": "B:\\Web\\C#\\AngularJSWeb\\Common\\Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vovav\\.nuget\\packages\\angular-uuid\\0.0.1\\angular-uuid.0.0.1.nupkg.sha512",
+    "C:\\Users\\vovav\\.nuget\\packages\\angularjs\\1.7.8.1\\angularjs.1.7.8.1.nupkg.sha512",
+    "C:\\Users\\vovav\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\vovav\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
+    "C:\\Users\\vovav\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\vovav\\.nuget\\packages\\simpleinjector\\4.0.8\\simpleinjector.4.0.8.nupkg.sha512",
+    "C:\\Users\\vovav\\.nuget\\packages\\system.componentmodel\\4.0.1\\system.componentmodel.4.0.1.nupkg.sha512",
+    "C:\\Users\\vovav\\.nuget\\packages\\system.runtime\\4.1.0\\system.runtime.4.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

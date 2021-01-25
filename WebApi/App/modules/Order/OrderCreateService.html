@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="../../styleIndex.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script type="text/javascript" src="./OrderCreateCtrl.js"></script>
+    <script type="text/javascript" src="../../core/array.js"></script>
+    <script type="text/javascript" src="../../core/guid.js"></script>
+
+    <title>New Order</title>
+
+    <style type="text/css">
+        TABLE {
+            width: 300px;
+            border: 1px solid black;
+        }
+
+        TD, TH {
+            padding: 3px; /* Поля вокруг содержимого ячеек */
+        }
+
+        TH {
+            text-align: left;
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="container-fluid" ng-controller="orderCreateCtrl">
+
+
+    <div class="wrapped">
+        <div class="bg-info text-center">New Order</div>
+        <br />
+        <div class="row" ng-show="isNewOrder">
+            <div class="col-sm-2">
+                <select ng-model="userId" class="form-control" ng-change="userChanged()">
+                    <option selected disabled value="{{null}}">User</option>
+                    <option ng-repeat="user in users" value="{{user.id}}">{{user.name}}</option>
+
+                </select>
+            </div>
+        </div>
+        <div ng-if="!isNewOrder">
+            <div class="row">
+                <div class="col-sm-2">User</div>
+                <div class="col-sm-10"><!-- User Name--></div>
+            </div>
+            <!-- Order Number -->
+            <!-- Order Date -->
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <form>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th class="widht-50">Quantity</th>
+                                <th>Total</th>
+                                <th class="widht-50">D</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in order.items">
+                                <td>{{item.product.name}}</td>
+                                <td>${{item.price}}</td>
+                                <td><input type="number" class="form-control" ng-model="item.quantity"></td>
+                                <td>${{getItemTotal(item)}}</td>
+                                <td>
+                                    <a class="btn btn-danger" ng-click="removeItem(item)">D</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-right">Total:</td>
+                                <td colspan="2">${{getOrderTotal()}}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <select class="form-control"
+                                    ng-model="productId"
+                                    ng-change="addItem()">
+                                <option selected disabled value="{{null}}">Select product</option>
+                                <option ng-repeat="p in products"
+                                        value="{{p.id}}">
+                                    {{p.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-outline-primary" ng-click="saveChanges()">Save</a>
+        <a class="btn btn-outline-info" href="./Order.html">Сancel</a>
+    </div>
+
+    <pre>{{order | json}}</pre>
+
+</body>
+</html>

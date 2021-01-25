@@ -1,0 +1,236 @@
+{
+  "format": 1,
+  "restore": {
+    "B:\\Web\\C#\\AngularJSWeb\\Data\\Data.csproj": {}
+  },
+  "projects": {
+    "B:\\Web\\C#\\AngularJSWeb\\BusinessEntities\\BusinessEntities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Web\\C#\\AngularJSWeb\\BusinessEntities\\BusinessEntities.csproj",
+        "projectName": "BusinessEntities",
+        "projectPath": "B:\\Web\\C#\\AngularJSWeb\\BusinessEntities\\BusinessEntities.csproj",
+        "packagesPath": "C:\\Users\\vovav\\.nuget\\packages\\",
+        "outputPath": "B:\\Web\\C#\\AngularJSWeb\\BusinessEntities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vovav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "angular-uuid": {
+              "target": "Package",
+              "version": "[0.0.1, )"
+            },
+            "angularjs": {
+              "target": "Package",
+              "version": "[1.7.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Web\\C#\\AngularJSWeb\\Common\\Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Web\\C#\\AngularJSWeb\\Common\\Common.csproj",
+        "projectName": "Common",
+        "projectPath": "B:\\Web\\C#\\AngularJSWeb\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\vovav\\.nuget\\packages\\",
+        "outputPath": "B:\\Web\\C#\\AngularJSWeb\\Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vovav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "SimpleInjector": {
+              "target": "Package",
+              "version": "[4.0.8, )"
+            },
+            "angular-uuid": {
+              "target": "Package",
+              "version": "[0.0.1, )"
+            },
+            "angularjs": {
+              "target": "Package",
+              "version": "[1.7.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Web\\C#\\AngularJSWeb\\Data\\Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Web\\C#\\AngularJSWeb\\Data\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "B:\\Web\\C#\\AngularJSWeb\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\vovav\\.nuget\\packages\\",
+        "outputPath": "B:\\Web\\C#\\AngularJSWeb\\Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vovav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "B:\\Web\\C#\\AngularJSWeb\\BusinessEntities\\BusinessEntities.csproj": {
+                "projectPath": "B:\\Web\\C#\\AngularJSWeb\\BusinessEntities\\BusinessEntities.csproj"
+              },
+              "B:\\Web\\C#\\AngularJSWeb\\Common\\Common.csproj": {
+                "projectPath": "B:\\Web\\C#\\AngularJSWeb\\Common\\Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[2.11.3, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "RavenDB.Client": {
+              "target": "Package",
+              "version": "[3.5.9, )"
+            },
+            "SimpleInjector": {
+              "target": "Package",
+              "version": "[4.0.8, )"
+            },
+            "System.Collections": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "angular-uuid": {
+              "target": "Package",
+              "version": "[0.0.1, )"
+            },
+            "angularjs": {
+              "target": "Package",
+              "version": "[1.7.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

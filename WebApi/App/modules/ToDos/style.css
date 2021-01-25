@@ -1,0 +1,54 @@
+﻿.row{
+    margin-bottom:5px;    
+}
+
+.widht-50{
+    width:50px;
+}
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.header {
+    width: 900px;
+    height: 80px;
+    text-align: center;
+    background-color: #BDBDBD;
+}
+
+.footer {
+    background-color: #BDBDBD;
+    text-align: center;
+}
+
+a {
+    display: block;
+    padding: 5px
+}
+
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.buttonAdd {
+    position: absolute;
+    top: 90%;
+    left: 45%;
+}
+
+.inputBloc {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+
+.itemSelect {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+}

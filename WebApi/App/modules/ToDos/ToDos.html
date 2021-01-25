@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="toDo">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script type="text/javascript" src="todosCtrl.js"></script>
+    <script type="text/javascript" src="/App/core/guid.js"></script>
+    <script type="text/javascript" src="/App/core/array.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+    <title>Web</title>
+</head>
+<body class="container-fluid">
+    <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li class="nav navbar-brand">WEBSITE TODO</li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../ToDos/ToDos.html">Todo</a></li>
+            <li><a href="../Project/projectItem.html">Project</a></li>
+            <li><a href="../User/Users.html">User</a></li>
+            <li><a href="../Worksheet/Worksheet.html">Worksheet</a></li>
+            <li><a href="../Category/Category.html">Category</a></li>
+            <li><a href="../Product/Product.html">Product</a></li>
+            <li><a href="../Order/Order.html">Order</a></li>
+        </ul>
+
+    </nav>
+    <div class="wrapped" ng-controller="firstCtrl">
+        <div class="row">
+            <div class="col-sm-12">
+                <form>
+                    <h4>TODO List</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="text" ng-model="description" class="form-control" />
+                        </div>
+                        <div class="col-md-9">
+                            <button class="btn btn-info" ng-click="search()">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="widht-50">E</th>
+                            <th class="widht-50">Completed</th>
+                            <th>Tasks</th>
+                            <th class="widht-50">D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="todo in todos | orderBy:'description'">
+                            <td aria-label="Edit">
+                                <button ng-click="setTodoForEdit(todo)" class="btn btn-primary">
+                                    E
+                                </button>
+                            </td>
+                            <td>
+                                <label class="btn btn-success active" ng-if="!todo.completed">
+                                    <input type="checkbox" ng-click="setForCompleted(todo)" class="btn btn-success done-{{todo.completed}}">
+                                </label>
+                            </td>
+                            <td ng-click="getTodosEdit(todo)">
+                                {{todo.description}}
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="deleteTodo(todo)">
+                                    D
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h2>New TODO</h2>
+                <input type="text" ng-model="new.description" />
+                <button class="btn btn-primary" ng-click="createTodo()">Add</button>
+            </div>
+            <div class="col-md-3">
+                <h2>Edit TODO</h2>
+                <input type="text" ng-model="editTodo.description" />
+                <button class="btn btn-warning" ng-click="updateTodo()">update</button>
+            </div>
+
+            <div class="col-md-3">
+                <h2>Edit TODOS</h2>
+                <div ng-repeat="todo in editTodos" class="row">
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="todo.description" />
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-danger" ng-click="removeEditTodo(todo)">
+                            R
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-warning" ng-click="updateTodos()">update</button>
+            </div>
+
+            <div class="col-md-3">
+                <h2>Completed</h2>
+                <div ng-repeat="todo in completed" class="row">
+                    <div class="col-sm-12">
+                        {{todo.description}}
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-danger" ng-click="setForCompleted(todo)">
+                            R
+                        </button>
+                    </div>
+                </div>
+                <button class="btn btn-primary" ng-click="completedTodos()">complete</button>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
